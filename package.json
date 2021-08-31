@@ -1,0 +1,18 @@
+{
+  "name": "weather-now",
+  "version": "1.0.0",
+  "description": "A weather application which displays the current weather in a customizable way.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "author": "Matheus Calderon",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5",
+    "pug": "^3.0.2"
+  }
+}

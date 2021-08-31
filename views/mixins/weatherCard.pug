@@ -1,0 +1,33 @@
+mixin weatherCard(obj)
+    // 'obj' is the weather object sent by the server
+    .col-xs-12.col-sm-6.col-lg-3(data-id= obj.id)
+        .card.border-0
+            .card-header.d-flex.flex-row.flex-nowrap.justify-content-between
+                h6.card-title.text-white.mb-0= `${obj.name}, ${obj.sys.country}`
+                p.btn-delete-card.text-white.h4.mb-0.text-right(title='Remove this card' data-id= obj.id)
+                    i.fas.fa-times
+            .card-body
+                .d-flex.flex-row.flex-nowrap.align-items-center.justify-content-center
+                    img.img-fluid.filter-shadow(src=`http://openweathermap.org/img/wn/${obj.weather[0].icon}.png` title=obj.weather[0].description alt=obj.weather[0].description)
+                    h4= (Math.round(obj.main.temp-273.15))
+                     |&deg;C
+                p.card-text.text-center= obj.weather[0].description
+                hr
+                // Card Wind
+                p.card-text.text-center
+                    b Wind
+                .d-flex.flex-row.flex-nowrap.justify-content-center
+                    p
+                        i.fas.fa-wind.text-dark-grey.mr-1
+                        =`${Math.round((obj.wind.speed * 60 * 60)/1000)}km/h`
+                    p
+                        i.fas.fa-location-arrow.text-dark-grey.ml-1.rotate(style=`transform: rotateZ(${-obj.wind.deg + 125}deg);`)
+                hr
+                // Other Weather Measurements
+                div
+                    p.card-text.text-center
+                        i.fas.fa-tint.mr-1.text-dark-grey
+                        =`Humidity: ${obj.main.humidity}%`
+                    p.card-text.text-center
+                        i.fas.fa-flask.mr-1.text-dark-grey
+                        =`${obj.main.pressure}hPa`

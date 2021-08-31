@@ -1,0 +1,21 @@
+extends templates/default.pug
+block content
+  .container.p-3
+    header
+      img#logo.mx-auto.d-block.mt-5(src='/media/logo.png' alt='WeatherNow Logo')
+  // Login form
+  form.form.p-4.mx-auto.mt-5(onsubmit='attemptLogin(event)')
+    small#formError.text-danger.text-center.d-block.mb-3
+    small#formMessage.text-success.text-center.d-block.mb-3= message && message.form || "" 
+    h3.text-center.mb-4.text-dark Welcome!
+    .form-group
+      label.text-dark(for='login') Login
+      input.form-control(type='text' placeholder='Your unique login' name='login' required pattern="[a-zA-Z][\\w]{3,31}")
+    .form-group
+      label.text-dark(for='password') Password
+      input.form-control(type='password' name='password' placeholder='Your password' required minlength='4' maxlength='32')
+    button.btn.btn-block.mt-4.mx-auto(type='submit') Log In
+    hr
+    small.text-center.d-block
+      | Not registered yet? 
+      a(href='/signup') Sign Up Here.

@@ -1,0 +1,24 @@
+extends templates/default.pug
+
+block content
+  .container.p-3
+    header
+      img#logo.mx-auto.d-block.mt-5(src='/media/logo.png' alt='WeatherNow Logo')
+  // Registration form
+  form.form.p-4.mx-auto.mt-5(onsubmit='createAccount(event)')
+    h3.text-center.mb-4.text-dark Registration
+    .form-group
+      label.text-dark(for='displayName') Display Name
+      input.form-control(type='text' name='displayName' minlength='4' maxlength='20' placeholder='The name to display when logged in' required='')
+    .form-group
+      label.text-dark(for='login') Login
+      input.form-control(type='text' placeholder='Login must contain at least 4 characters' name='login' required minlength='4' maxlength='32' onInput='checkLoginConformity(event)')
+      small#loginError.text-danger.mt-5.pl-1
+    .form-group
+      label.text-dark(for='password') Password
+      input.form-control(type='password' name='password' placeholder='Password must contain 4 to 32 characters' required minlength='4' maxlength='32')
+    button.btn.btn-block.mt-4.mx-auto(type='submit') Create New Account
+    hr
+    small.text-center.d-block
+      | Already a user? 
+      a(href='/login') Log In Here.

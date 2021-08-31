@@ -1,0 +1,27 @@
+extends templates/default.pug
+include mixins/weatherCard.pug
+
+block before-content
+  // Main Navigation
+  nav#mainMenu.d-flex.flex-md-row.flex-column.justify-content-center.flex-nowrap.align-items-center.px-3.py-1
+    a(href='/')
+      img#logoMenu(src='media/logo.png' alt='WeatherNow Logo')
+    ul.list-unstyled.pt-2.ml-md-auto
+      li= `Welcome, ${user.displayName}. `
+        a.text-light-blue(href='/logout') Logout
+
+block content
+  // Main Container
+  .container
+    // City Search Bar
+    form#searchForm(onSubmit='createWeatherCard(event, this)')
+      input(type='text' name='q' autocomplete='off' placeholder='Try Searching for "Montreal, CA"' required='')
+      button.btn.btn-block(type='submit')
+        | Show me the weather
+        i.ml-2.fas.fa-search
+      p#searchError.text-center.text-light-red.mt-2.h6.d-none
+    // Weather Cards Area
+    #cardsArea.mt-5
+      .row
+        each weatherCard in user.weatherCards
+          +weatherCard(weatherCard)
