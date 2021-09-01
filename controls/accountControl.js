@@ -21,6 +21,7 @@ module.exports.postApiCreateAccount = async(req, res, next) => {
 
 module.exports.postApiLogin = async(req, res, next) => {
     const {login, password} = req.body;
+    console.log(login, password);
     const user = await userModel.findOne({login, password});
     // If login and password is correct...
     if (user) {
