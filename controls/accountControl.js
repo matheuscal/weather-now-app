@@ -1,7 +1,6 @@
 const userModel = require('../models/userModel');
 
 module.exports.postApiCreateAccount = async(req, res, next) => {
-    console.log(req.body);
     const {login, password, displayName} = req.body;
     const userAlreadyExists = await userModel.findOne({login});
 

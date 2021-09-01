@@ -12,9 +12,9 @@ app.set('views', './views');
 app.use(express.static('./static/'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cookieSession({name: 'userSession', maxAge: 1000 * 60 * 60 * 24, keys: ['A912kedkfKl', 'kLadi29lfvnzj', '731Kksdkl17c']}));
+app.use(cookieSession({name: 'userSession', maxAge: 1000 * 60 * 60 * 24, keys: process.env.COOKIE_KEYS || ['A912kedkfKl', 'kLadi29lfvnzj', '731Kksdkl17c']}));
 app.use(accountRoute);
 app.use(navigationRoute);
 app.use(weatherRoute);
 
-app.listen('3000');
+app.listen(process.env.PORT || '3000');
