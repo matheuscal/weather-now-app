@@ -6,8 +6,7 @@ const navigationRoute = require('./routes/navigationRoute');
 const weatherRoute = require('./routes/weatherRoute');
 const app = express();
 
-app.enable('trust proxy');
-
+app.set('trust proxy', 1);
 app.set('view engine', 'pug');
 app.set('views', './views');
 
