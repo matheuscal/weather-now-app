@@ -13,7 +13,7 @@ app.set('views', './views');
 app.use(express.static('./static/'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cookieSession({name: 'userSession', maxAge: 1000 * 60 * 60 * 24, secure: false, keys: process.env.NODE_ENV === 'production' ? ['A912kedkfKl', 'kLadi29lfvnzj', '731Kksdkl17c']}));
+app.use(cookieSession({name: 'userSession', maxAge: 1000 * 60 * 60 * 24, secure: true, keys: process.env.NODE_ENV === 'production' ? process.env.COOKIE_KEY : ['A912kedkfKl', 'kLadi29lfvnzj', '731Kksdkl17c']}));
 app.use(accountRoute);
 app.use(navigationRoute);
 app.use(weatherRoute);
