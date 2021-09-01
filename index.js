@@ -18,6 +18,4 @@ app.use(accountRoute);
 app.use(navigationRoute);
 app.use(weatherRoute);
 
-console.log(process.env);
-
 app.listen(process.env.PORT || '3000');
