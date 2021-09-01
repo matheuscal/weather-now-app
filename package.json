@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index"
+    "startdev": "nodemon index",
+    "start": "node start"
   },
   "author": "Matheus Calderon",
   "license": "ISC",
