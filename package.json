@@ -1,7 +1,7 @@
 {
   "name": "weather-now",
   "version": "1.0.0",
-    "engines": {
+  "engines": {
     "node": "12.x"
   },
   "description": "A weather application which displays the current weather in a customizable way.",
