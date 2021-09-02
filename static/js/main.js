@@ -42,7 +42,7 @@ function attemptLogin(e){
             const {error} = data;
             // Handle errors sent by server
             if (response.status === 400) {
-                if (error && error.login){
+                if (error && error.form){
                     $('#formError').text(data.error.form);
                 }
             }
