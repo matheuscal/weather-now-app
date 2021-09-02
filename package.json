@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startdev": "nodemon index",
+    "dev": "nodemon index",
     "start": "node index.js"
   },
   "author": "Matheus Calderon",
